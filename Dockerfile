@@ -6,6 +6,6 @@ RUN apt-get update -y && \
 EXPOSE 5666
 
 COPY nrpe.cfg /etc/nagios/nrpe.cfg
-COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+COPY nrpe-entrypoint.sh /nrpe-entrypoint.sh
+ENTRYPOINT ["/nrpe-entrypoint.sh"]
 CMD ["nrpe"]
