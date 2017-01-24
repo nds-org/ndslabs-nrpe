@@ -19,7 +19,9 @@ RUN apt-get update -y && \
           --enable-command-args && \
     make && make install && rm /usr/sbin/nrpe && \
     ln -s /usr/bin/nrpe /usr/sbin/nrpe && \
-    apt-get remove -y libssl-dev wget && rm -r /nrpe-2.15 && rm /nagios-nrpe_2.15.orig.tar.gz
+    wget https://github.com/craig-willis/check_kube/releases/download/v0.1/check_kube-linux-amd64 -O /usr/lib/nagios/plugins/check_kube && \
+    chmod +x /usr/lib/nagios/plugins/check_kube && \
+    apt-get remove -y libssl-dev wget && rm -r /nrpe-2.15 && rm /nagios-nrpe_2.15.orig.tar.gz 
     
 
 EXPOSE 5666
