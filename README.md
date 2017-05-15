@@ -21,6 +21,8 @@ Modify `nagios-nrpe.yaml` to adjust **image** to point to your own, and then run
 kubectl create -f nagios-nrpe.yaml
 ```
 
+NOTE: This will start a DaemonSet for the NRPE container, which will run a copy on each node in the cluster.
+
 # Via Docker
 ```bash
 docker run --privileged -v /:/mnt/ROOT --rm --name nrpe -p 5666:5666 ndslabs/nagios-nrpe
